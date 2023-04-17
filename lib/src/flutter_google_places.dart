@@ -161,17 +161,6 @@ class _PlacesAutocompleteOverlayState extends PlacesAutocompleteState {
           alignment: FractionalOffset.bottomCenter,
           children: <Widget>[_Loader()],
         );
-      } else if (_queryTextController!.text.isEmpty ||
-          _response == null ||
-          _response!.predictions.isEmpty) {
-        body = Material(
-          color: theme.dialogBackgroundColor,
-          borderRadius: BorderRadius.only(
-            bottomLeft: bodyBottomLeftBorderRadius,
-            bottomRight: bodyBottomRightBorderRadius,
-          ),
-          child: widget.logo ?? const PoweredByGoogleImage(),
-        );
       } else {
         body = SingleChildScrollView(
           child: Material(
@@ -282,7 +271,6 @@ class PlacesAutocompleteResultState extends State<PlacesAutocompleteResult> {
       if (state._searching) {
         children.add(_Loader());
       }
-      children.add(widget.logo ?? const PoweredByGoogleImage());
       return Stack(children: children);
     }
     return PredictionsListView(

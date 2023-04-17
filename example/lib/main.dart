@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 import 'package:google_maps_webservice/places.dart';
 
-const kGoogleApiKey = "API_KEY";
+const kGoogleApiKey = "AIzaSyDPSK1qumWLSmkbURmcjADNAtph_Aohv7k";
 
 main() {
   runApp(const RoutesWidget());
@@ -156,9 +156,15 @@ class CustomSearchScaffold extends PlacesAutocompleteWidget {
       : super(
           key: key,
           apiKey: kGoogleApiKey,
-          sessionToken: Uuid().generateV4(),
-          language: "en",
-          components: [Component(Component.country, "uk")],
+          offset: 0,
+          radius: 1000,
+          strictbounds: false,
+          region: "tg",
+          language: "fr",
+          hint: "Rechercher le lieu de départ",
+          mode: Mode.overlay,
+          components: [Component(Component.country, "tg")],
+          types: [],
         );
 
   @override
